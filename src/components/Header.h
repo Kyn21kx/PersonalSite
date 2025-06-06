@@ -1,8 +1,11 @@
 #pragma once
+#include "Buttons.h"
 #include "ColorUtils.h"
+#include "StringUtils.h"
 #include "TextUtils.h"
 #include "clay.h"
 #include "raylib.h"
+#include <cstdint>
 #include <string>
 
 namespace Components {
@@ -19,9 +22,12 @@ namespace Components {
                 CLAY_TEXT(CLAY_STRING("Leonidas Neftali (Kyn21kx)"), CLAY_TEXT_CONFIG(TextUtils::Default(32)));
                 CLAY_TEXT(CLAY_STRING("Game Engine & Software Developer"), CLAY_TEXT_CONFIG(TextUtils::Default(32)));
             }
+            // Some spacing or maybe a flexbox
+            Buttons::ButtonComponent(CLAY_STRING("Test change"));
             // std::string timeStr = "Current time: ";
-            // timeStr += std::to_string(GetTime());
-            // CLAY_TEXT(CLAY_STRING(timeStr.c_str()), CLAY_TEXT_CONFIG(TextUtils::Default(32)));
+            // timeStr += std::to_string(static_cast<int32_t>(GetTime()));
+            // Clay_String str = StringUtils::FromCString(timeStr.c_str(), timeStr.size());
+            // CLAY_TEXT(str, CLAY_TEXT_CONFIG(TextUtils::Default(32)));
         }  
     }
 }

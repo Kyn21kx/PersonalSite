@@ -18,7 +18,7 @@ int main(void)
     Clay_Arena clayArena = Clay_CreateArenaWithCapacityAndMemory(memorySize, malloc(memorySize));
     
     
-    Clay_Raylib_Initialize(1920, 1080, "Nef's professional showcase", FLAG_WINDOW_RESIZABLE | FLAG_WINDOW_HIGHDPI );
+    Clay_Raylib_Initialize(1920, 1080, "Nef's professional showcase", FLAG_WINDOW_RESIZABLE);
 
     Clay_Initialize(clayArena, (Clay_Dimensions){1920, 1080}, (Clay_ErrorHandler){HandleClayErrors});
 

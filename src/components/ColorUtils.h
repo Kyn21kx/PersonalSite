@@ -3,6 +3,10 @@
 
 namespace ColorUtils {
 
+	constexpr Clay_Color Transparent() {
+		return { 0.0f, 0.0f, 0.0f, 0.0f };
+	}
+	
 	constexpr Clay_Color White(float opacity = 255.0f) {
 		return { 255, 255, 255, opacity };
 	}

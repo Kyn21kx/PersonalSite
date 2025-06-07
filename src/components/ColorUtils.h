@@ -1,3 +1,4 @@
+
 #pragma once
 #include "clay.h"
 
@@ -23,5 +24,65 @@ namespace ColorUtils {
 		return { 255, 0, 0, opacity };
 	}
 	
+	// Professional tech color palette
+	constexpr Clay_Color DeepBlue(float opacity = 255.0f) {
+		return { 17, 45, 78, opacity };
+	}
+	
+	constexpr Clay_Color MidBlue(float opacity = 255.0f) {
+		return { 43, 84, 134, opacity };
+	}
+	
+	constexpr Clay_Color LightBlue(float opacity = 255.0f) {
+		return { 88, 160, 231, opacity };
+	}
+	
+	constexpr Clay_Color AccentTeal(float opacity = 255.0f) {
+		return { 0, 176, 182, opacity };
+	}
+	
+	constexpr Clay_Color AccentGreen(float opacity = 255.0f) {
+		return { 35, 203, 167, opacity };
+	}
+	
+	constexpr Clay_Color DarkCharcoal(float opacity = 255.0f) {
+		return { 27, 38, 44, opacity };
+	}
+	
+	constexpr Clay_Color CodeGray(float opacity = 255.0f) {
+		return { 45, 55, 72, opacity };
+	}
+	
+	constexpr Clay_Color SubtleGray(float opacity = 255.0f) {
+		return { 226, 232, 240, opacity };
+	}
+	
+	// // Semantic UI colors
+	// constexpr Clay_Color Primary() {
+	// 	return DeepBlue();
+	// }
+	
+	// constexpr Clay_Color Secondary() {
+	// 	return MidBlue();
+	// }
+	
+	// constexpr Clay_Color Accent() {
+	// 	return AccentTeal();
+	// }
+	
+	// constexpr Clay_Color Background() {
+	// 	return DarkCharcoal();
+	// }
+	
+	//  constexpr Clay_Color Surface() {
+	// 	return CodeGray();
+	// }
+	
+	// constexpr Clay_Color TextPrimary() {
+	// 	return White();
+	// }
+	
+	// constexpr Clay_Color TextSecondary() {
+	// 	return SubtleGray();
+	// }
 }
-

@@ -8,8 +8,8 @@
 #include "renderer/clay_renderer_raylib.c"
 #include <cstdio>
 
-constexpr int32_t INIT_WIDTH = 3840; 
-constexpr int32_t INIT_HEIGHT = 2160; 
+constexpr int32_t INIT_WIDTH = 1080; 
+constexpr int32_t INIT_HEIGHT = 720; 
 
 void HandleClayErrors(Clay_ErrorData error) {
     printf("%s", error.errorText.chars);
@@ -25,7 +25,9 @@ void Update(Font* fonts)
     Clay_SetLayoutDimensions({.width = windowSize.x, .height = windowSize.y});
     Clay_BeginLayout();
 
-    CLAY({.id = CLAY_ID("MainContainer"), .layout = { .sizing = LayoutUtils::SizeAutoGrowXY(), .layoutDirection = CLAY_TOP_TO_BOTTOM }, .backgroundColor = {23, 23, 23, 255}})
+    Clay_Color bgColor = ColorUtils::Black();
+    
+    CLAY({.id = CLAY_ID("MainContainer"), .layout = { .sizing = LayoutUtils::SizeAutoGrowXY(), .layoutDirection = CLAY_TOP_TO_BOTTOM }, .backgroundColor = bgColor})
     {
         Components::Header();
     	// CLAY_TEXT(CLAY_STRING("Hey there claaay"), CLAY_TEXT_CONFIG({ .textColor = ColorUtils::Black(), .fontId = 0, .fontSize = 24 }));

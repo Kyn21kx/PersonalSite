@@ -45,6 +45,10 @@ namespace ColorUtils {
 		return { 35, 203, 167, opacity };
 	}
 	
+	constexpr Clay_Color Green(float opacity = 255.0f) {
+		return { 54, 94, 58, opacity };
+	}
+	
 	constexpr Clay_Color DarkCharcoal(float opacity = 255.0f) {
 		return { 27, 38, 44, opacity };
 	}

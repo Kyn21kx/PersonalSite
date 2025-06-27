@@ -22,13 +22,18 @@ void HandleClayErrors(Clay_ErrorData error) {
     printf("%s", error.errorText.chars);
 }
 
-void Update() 
+void Update()
 {
     Vector2 windowSize = {(float)GetScreenWidth(), (float)GetScreenHeight()};
     
 
     Clay_Vector2 mousePosition = {GetMousePosition().x, GetMousePosition().y};
-    Clay_SetPointerState(mousePosition, IsMouseButtonDown(0));    
+    Clay_Vector2 mouseScroll = {GetMouseWheelMoveV().x, GetMouseWheelMoveV().y};
+    if (mouseScroll.y != 0) {
+        printf("MouseWheelV: (%.2f, %.2f)\n", mouseScroll.x, mouseScroll.y);
+    }
+    Clay_SetPointerState(mousePosition, IsMouseButtonDown(0));
+    Clay_UpdateScrollContainers(true, mouseScroll, GetFrameTime());
     Clay_SetLayoutDimensions({.width = windowSize.x, .height = windowSize.y});
     Clay_BeginLayout();
 
@@ -37,8 +42,18 @@ void Update()
     CLAY({.id = CLAY_ID("MainContainer"), .layout = { .sizing = LayoutUtils::SizeAutoGrowXY(), .layoutDirection = CLAY_TOP_TO_BOTTOM }, .backgroundColor = bgColor})
     {
         Components::Header(ImageUtils::g_imageResources.headerProfileIdx, ImageUtils::g_imageResources.githubLogoIdx, ImageUtils::g_imageResources.linkedInIdx, ImageUtils::g_imageResources.emailLogoIdx);
-        Components::IntroBody();
-    	// CLAY_TEXT(CLAY_STRING("Hey there claaay"), CLAY_TEXT_CONFIG({ .textColor = ColorUtils::Black(), .fontId = 0, .fontSize = 24 }));
+        Clay_ClipElementConfig scrollClipping = {
+            .vertical = true,
+            .childOffset = Clay_GetScrollOffset()
+        };
+        Clay_LayoutConfig scrollLayout = {
+            .sizing = {
+                .width = CLAY_SIZING_FIXED(900)
+            }
+        };
+        CLAY({ .id = CLAY_ID("ScrollContainer"), .clip = scrollClipping }) {
+            Components::IntroBody();
+        }
     }
     
     

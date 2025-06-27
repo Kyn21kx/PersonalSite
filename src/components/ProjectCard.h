@@ -9,6 +9,7 @@
 #include "raylib.h"
 
 constexpr uint32_t PROJECT_CARD_WIDTH = 300;
+constexpr float POP_OUT_SPEED = 3.5f;
 
 inline float lerp(float a, float b, float t) {
     return a + t * (b - a);
@@ -40,10 +41,10 @@ inline void ProjectCard(size_t imageIdx, const std::string& title, const std::st
         Texture2D* image = ResourceLoader::g_resourceLoader.GetLoadedImage(imageIdx);
 
         if (Clay_Hovered()) {
-            *blendTimer = std::min((*blendTimer) + GetFrameTime() * 3, 1.0f);
+            *blendTimer = std::min((*blendTimer) + GetFrameTime() * POP_OUT_SPEED, 1.0f);
         }
         else {
-            *blendTimer = std::max((*blendTimer) - GetFrameTime() * 3, 0.0f);
+            *blendTimer = std::max((*blendTimer) - GetFrameTime() * POP_OUT_SPEED, 0.0f);
         }
         
         PopOut(&imgSizing, blendTimer);

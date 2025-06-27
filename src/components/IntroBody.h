@@ -31,8 +31,12 @@ namespace Components {
 		CLAY({ .id = CLAY_ID("ProjectsContainer"), .layout = layout }) {
 			ProjectCard(ResourceLoader::g_tilesIcon, TILES_TITLE, TILES_DESC, &tilesAnimationBlend);
 			ProjectCard(ImageUtils::g_imageResources.hushImageIdx, HUSH_TITLE, HUSH_DESC, &hushAnimationBlend);
-			ProjectCard(ImageUtils::g_imageResources.gripshotImageIdx, GRIPSHOT_TITLE, GRIPSHOT_DESC, &gripshotAnimationBlend);
+			// ProjectCard(ImageUtils::g_imageResources.gripshotImageIdx, GRIPSHOT_TITLE, GRIPSHOT_DESC, &gripshotAnimationBlend);
 		}
+	}
+	
+	inline void WorkExperience() {
+		CLAY_TEXT(CLAY_STRING("Professional Background"), CLAY_TEXT_CONFIG(TextUtils::Default(72)));
 	}
 	
 	inline void IntroBody() {
@@ -44,8 +48,9 @@ namespace Components {
 	    CLAY({ .id = CLAY_ID("IntroBody"), .layout = { .sizing = sizing, .childGap = 24, .childAlignment = LayoutUtils::ChildAlignCenterAll(), .layoutDirection = CLAY_TOP_TO_BOTTOM}}) {
             CLAY_TEXT(CLAY_STRING("Hi! My name is Nef"), CLAY_TEXT_CONFIG(TextUtils::Default(72)));
             CLAY_TEXT(CLAY_STRING("Systems Engineer with experience in the gaming industry and a focus on performance effective software"), CLAY_TEXT_CONFIG(TextUtils::Default(48)));
+	        PopularProjects();
+	        WorkExperience();
 	    }
-        PopularProjects();
     }
 }
 
